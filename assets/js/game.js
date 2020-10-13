@@ -16,17 +16,18 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-for(var i = 0; i < enemyNames.length; i++) {
-  console.log(enemyNames[i]);
-  console.log(i);
-  console.log(enemyNames[i] + " is at " + i + " index");
-}
+// for(var i = 0; i < enemyNames.length; i++) {
+  // console.log(enemyNames[i]);
+  // console.log(i);
+  // console.log(enemyNames[i] + " is at " + i + " index");
+// }
 
-var fight = function(enemyNames) {
-  ... // fight function statements
-}
- // Alert users that they are starting the round
-  window.alert("Welcome to Robot Gladiators!");
+var fight = function(enemyName) {
+  // repeat and execute as long as the enemy robot is alive 
+  
+  while(enemyHealth > 0) {
+    // place fight function code block here . . .
+  }
 
   //  Prompt that asks the user if they want to fight or skip the battle
   var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
@@ -74,8 +75,10 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
     playerMoney = playerMoney - 2;
   }
 
-  for(var i = 0; i < enemyNames.length; i++) {
-  fight(enemyNames[i]);
+  for (var i = 0; i < enemyNames.length; i++) {
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
   }
 }
 };

@@ -8,7 +8,7 @@ var fight = function(enemy) {
 
   //repeat and execute aas long as the enemy robot is alive  
   while (enemy.health > 0 && playerInfo.health > 0) {
-    // ask user if they'd liked to fight or run
+    // ask user if they'd liked to fight or skip battle
     var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
 
     // if user picks "skip" confirm and then stop the loop
@@ -89,7 +89,7 @@ for (var i = 0; i < enemyInfo.length; i++) {
     // reset enemy health before new fight with randomized health value between 40-60
     pickedEnemyObj.health = randomNumber(40, 60);
 
-
+    //pass the pickedEnemyName variable's value into the fight function, it'll take the value of the enemyName
     fight(pickedEnemyObj);
 
     // if player is still alive and we're not at the last enemy in the array
@@ -167,9 +167,9 @@ var shop = function() {
   }
 };
 
-// function to generate a random numeric value
-var randomNumber = function() {
-  var value = Math.floor(Math.random() * 21) + 40;
+// function to generate a random numeritcal value
+var randomNumber = function(min, max) {
+  var value = Math.floor(Math.random() * (max - min + 1) + min);
 
   return value;
 };
@@ -193,7 +193,7 @@ var playerInfo = {
     else {
     window.alert("You don't have enough money!");
     }
-  },
+  }, // comma!
   upgradeAttack: function() {
     if (this.money >= 7) {
       window.alert("Upgrading player's attack by 6 for 7 dollars.");
@@ -221,9 +221,8 @@ var enemyInfo = [
   }
 ];
   
-
-  // play again
-  startGame();
+// play again when pages loads
+startGame();
   
 
 // Wrap the game logic in a startGame() function
